@@ -1,0 +1,117 @@
+#gamebody{
+	position: relative;
+	height:  580px;
+	max-width: 100%;
+	border:10px solid brown;
+	background-color: #ff9933;
+	text-align: center;
+}
+
+#computer{
+	clear: both;
+	display: block;
+	position: relative;
+	margin: 5px;
+	height: 65px;
+	width: 50px;
+	background-color: #222B31;
+	border: 2px solid black;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+
+#mouth{
+	 display: block;
+	position: relative;
+	margin-top: 20px;
+	margin-left: 35px;
+	height: 20px;
+	width: 30px;
+	background-color: #222B31;
+	border: 1px solid black;
+	border-right: 5px solid red;
+	border-radius: 5px;
+}
+
+#bullat{
+	margin-top: -23px;
+	margin-left: 50px;
+	display: block;
+	background-color: red;
+	height: 20px;
+	width: 20px;
+	border: 2px solid brown; 
+	border-radius: 10px;
+}
+#player{
+	 clear: both;
+	 display: block;
+	position: relative;
+	margin: 5px;
+	height: 65px;
+	width: 50px;
+	background-color: green;
+	border: 2px solid black;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+
+#mouth1{
+	 display: block;
+	position: relative;
+	margin-top: 20px;
+	margin-left: 35px;
+	height: 20px;
+	width: 30px;
+	background-color: green;
+	border: 1px solid black;
+	border-right: 5px solid white;
+	border-radius: 5px;
+}
+
+#bullat1{
+	margin-top: -23px;
+	margin-left: 50px;
+	display: block;
+	background-color: black;
+	height: 20px;
+	width: 20px;
+	border: 2px solid white; 
+	border-radius: 10px;
+}
+
+.rutatedown{
+	 -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.rutateleft{
+	 -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.rutatetop{
+	 -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.rutateright{
+	 -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
