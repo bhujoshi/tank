@@ -7,14 +7,13 @@
 	text-align: center;
 }
 
-#computer{
+#tank{
+	position: relative;
 	clear: both;
 	display: block;
-	position: relative;
 	margin: 5px;
 	height: 65px;
 	width: 50px;
-	background-color: #222B31;
 	border: 2px solid black;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
@@ -22,14 +21,21 @@
 	border-bottom-left-radius: 7px;
 }
 
+.player{
+	background-color: green;
+}
+
+.enemy{
+	background-color: #224455;
+}
+
 #mouth{
-	 display: block;
+	display: block;
 	position: relative;
 	margin-top: 20px;
 	margin-left: 35px;
 	height: 20px;
 	width: 30px;
-	background-color: #222B31;
 	border: 1px solid black;
 	border-right: 5px solid red;
 	border-radius: 5px;
@@ -39,48 +45,9 @@
 	margin-top: -23px;
 	margin-left: 50px;
 	display: block;
-	background-color: red;
 	height: 20px;
 	width: 20px;
 	border: 2px solid brown; 
-	border-radius: 10px;
-}
-#player{
-	 clear: both;
-	 display: block;
-	position: relative;
-	margin: 5px;
-	height: 65px;
-	width: 50px;
-	background-color: green;
-	border: 2px solid black;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-top-left-radius: 7px;
-	border-bottom-left-radius: 7px;
-}
-
-#mouth1{
-	 display: block;
-	position: relative;
-	margin-top: 20px;
-	margin-left: 35px;
-	height: 20px;
-	width: 30px;
-	background-color: green;
-	border: 1px solid black;
-	border-right: 5px solid white;
-	border-radius: 5px;
-}
-
-#bullat1{
-	margin-top: -23px;
-	margin-left: 50px;
-	display: block;
-	background-color: black;
-	height: 20px;
-	width: 20px;
-	border: 2px solid white; 
 	border-radius: 10px;
 }
 
