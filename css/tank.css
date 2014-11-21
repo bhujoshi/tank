@@ -1,17 +1,22 @@
+body{
+	background-color: #003300;
+}
 #gamebody{
+	margin: 50px;
 	position: relative;
-	height:  580px;
-	max-width: 100%;
-	border:10px solid brown;
-	background-color: #ff9933;
+	height:  484px;
+	width: 984px;
+	border:20px solid #B89300;
+	background-color: black;
 	text-align: center;
+	box-shadow: 0px 0px 0px 3px #ffffff;
 }
 
-#tank{
+.tank_body{
 	position: relative;
 	clear: both;
 	display: block;
-	margin: 5px;
+	margin:5px;
 	height: 65px;
 	width: 50px;
 	border: 2px solid black;
@@ -29,10 +34,11 @@
 	background-color: #224455;
 }
 
-#mouth{
+.tank_mouth{
+	position:relative;
 	display: block;
 	position: relative;
-	margin-top: 20px;
+	margin-top: -50px;
 	margin-left: 35px;
 	height: 20px;
 	width: 30px;
