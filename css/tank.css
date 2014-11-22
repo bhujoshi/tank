@@ -57,7 +57,7 @@ body{
 	border-radius: 10px;
 }
 
-.rutatedown{
+.rotatedown{
 	 -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
@@ -65,7 +65,7 @@ body{
     transform: rotate(90deg);
 }
 
-.rutateleft{
+.rotateleft{
 	 -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -o-transform: rotate(180deg);
@@ -73,7 +73,7 @@ body{
     transform: rotate(180deg);
 }
 
-.rutatetop{
+.rotatetop{
 	 -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
@@ -81,7 +81,7 @@ body{
     transform: rotate(-90deg);
 }
 
-.rutateright{
+.rotateright{
 	 -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
