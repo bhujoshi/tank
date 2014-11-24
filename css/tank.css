@@ -57,6 +57,17 @@ body{
 	border-radius: 10px;
 }
 
+.bullet{
+	position: relative;
+	top: -17px;
+	left: 65px;
+	height: 10px;
+	width: 15px;
+	background-color: #ffffff;
+	border-top-right-radius: 100%;
+	border-bottom-right-radius: 100%;
+	box-shadow: -7px 0px 5px 0px blue;
+}	
 .rotatedown{
 	 -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);

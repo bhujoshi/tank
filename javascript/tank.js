@@ -1,18 +1,21 @@
 $(document).ready(function(){
-	var my_player = {
-		x: 100,
-		y:100,
-		tank_direction: 37
-	};
+	var my_player = {x: 100,y:100,tank_direction: 39};
 
 	function player(classes,x,y) {
 		return $("<div>").addClass(classes + " tank")
 		.append($('<div>').addClass("tank_body").addClass('player'))
 		.append($('<div>').addClass("tank_mouth").addClass('player'))
-		.css({'position':'absolute','top':y,'left':x,'width': '50px'});
+		.css({'position':'absolute','top':y,'left':x,'height': '78px'});
 	}
 	$('#gamebody').append(player("my_player" , my_player.x, my_player.y));
-	
+	//bullet code
+	$(document).click(function(){	
+			var bullet = 965-my_player.x; 
+			$('.my_player').append($('<div>').addClass('bullet'));
+			$('.bullet').animate({left: bullet},2000,function(){
+			$('.bullet').remove();
+		});
+	});
 	//player control
 	$(document).keydown(function(e) {
 		switch(e.which) {
@@ -95,10 +98,10 @@ $(document).ready(function(){
 	setInterval(function(){
 		$('#gamebody').append(enemy("computer_player3",200,100));
 	},9000);
-	setInterval(function(){
+	timeOut(function(){
 		$('#gamebody').append(enemy("computer_player4",300,200));
 	},10000);	
-	setInterval(function(){
+	timeOut(function(){
 		$('#gamebody').append(enemy("computer_player5",400,300));
 	},11000);	
 
