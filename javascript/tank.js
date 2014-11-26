@@ -9,13 +9,69 @@ $(document).ready(function(){
 	}
 	$('#gamebody').append(player("my_player" , my_player.x, my_player.y));
 	//bullet code
-	$(document).click(function(){	
-			var bullet = 965-my_player.x; 
-			$('.my_player').append($('<div>').addClass('bullet'));
-			$('.bullet').animate({left: bullet},2000,function(){
-			$('.bullet').remove();
-		});
+	$(document).click(function(){
+	//for right	
+		$('#gamebody').append($('<div>').addClass('bullet'));
+		if(my_player.tank_direction == 39){	
+			var pos_player = $('.my_player').position();
+			var top_pos = pos_player.top + 34;
+			var	left_pos = pos_player.left + 50;
+			var animate = 965;
+			$('.bullet').addClass('right');
+			$('.right').css({'top': top_pos,'left': left_pos});
+			$('.right').animate({left: animate},'slow',function(){
+				$('.bullet').remove();
+				$('.right').remove();
+			});
+		}	
+	//for left	
+	
+		if( my_player.tank_direction == 37 ){	
+			var pos_player = $('.my_player').position();
+			var top_pos = pos_player.top + 33;
+			var	left_pos = pos_player.left + 10;
+			var animate = 100;
+			//$('#gamebody').append($('<div>').addClass('bullet'));
+			$('.bullet').addClass('left');
+			$('.left').css({'top': top_pos,'left': left_pos});
+			$('.left').addClass('rotateleft');
+			$('.left').animate({left: -animate},animate,function(){
+				$('.bullet').remove();
+				$('.left').remove();
+			});
+		}
+	//for top 	
+		if(my_player.tank_direction == 38){	
+			var pos_player = $('.my_player').position();
+			var top_pos = pos_player.top - 15;
+			var	left_pos = pos_player.left + 30;
+			var animate = top_pos;
+			//$('#gamebody').append($('<div>').addClass('bullet'));
+			$('.bullet').addClass('top');
+			$('.top').css({'top': top_pos,'left': left_pos});
+			$('.top').addClass('rotatetop');
+			$('.top').animate({top: -animate},animate,function(){
+				$('.bullet').remove();
+				$('.top').remove();
+			});
+		}	
+	//for down	
+		if(my_player.tank_direction == 40){	
+			var pos_player = $('.my_player').position();
+			var top_pos = pos_player.top + 55;
+			var	left_pos = pos_player.left + 30;
+			var animate = 500;
+			//$('#gamebody').append($('<div>').addClass('bullet'));
+			$('.bullet').addClass('down');
+			$('.down').css({'top': top_pos,'left': left_pos});
+			$('.down').addClass('rotatedown');
+			$('.down').animate({top: animate},animate,function(){
+				$('.bullet').remove();
+				$('.down').remove();
+			});
+		}	
 	});
+	
 	//player control
 	$(document).keydown(function(e) {
 		switch(e.which) {
