@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	var my_player = {x: 100,y:100,tank_direction: 39};
+	var my_player = {x: 0,y:0,tank_direction: 39};
+	var left = 37, top = 38, right = 39, down = 40,i = 0;
 
 	function player(classes,x,y) {
 		return $("<div>").addClass(classes + " tank")
@@ -9,29 +10,46 @@ $(document).ready(function(){
 	}
 	$('#gamebody').append(player("my_player" , my_player.x, my_player.y));
 	//bullet code
+	var bullets = ['bullet0','bullet1','bullet2'];
+	var selecter = ['.bullet0','.bullet1','.bullet2'];
 	$(document).click(function(){
 	//for right	
-		$('#gamebody').append($('<div>').addClass('bullet'));
-		if(my_player.tank_direction == 39){	
+		
+		$('#gamebody').append($('<div>').addClass(bullets[i] + ' bullet'));
+		if(my_player.tank_direction == right){	
 			var pos_player = $('.my_player').position();
 			var top_pos = pos_player.top + 34;
 			var	left_pos = pos_player.left + 50;
-			var animate = 965;
 			$('.bullet').addClass('right');
-			$('.right').css({'top': top_pos,'left': left_pos});
-			$('.right').animate({left: animate},'slow',function(){
-				$('.bullet').remove();
-				$('.right').remove();
-			});
+			$('.bullet').css({'top': top_pos,'left': left_pos});
+			$('.bullet').addClass('rotateright');
+			function bullet(){
+			
+				left_pos = left_pos + 50; 
+				$(selecter[i]).animate({left: "+=50"},100,function(){
+					if(left_pos >= 965){
+						$(selecter[i]).remove();
+						$('.bullet').remove();
+					}
+					else{
+						bullet();
+					}		
+				});
+				
+			}	
+			bullet();
+			if( i == 2 ){
+				i =0;
+			}
 		}	
+		
 	//for left	
 	
-		if( my_player.tank_direction == 37 ){	
+		if( my_player.tank_direction == left ){	
 			var pos_player = $('.my_player').position();
 			var top_pos = pos_player.top + 33;
 			var	left_pos = pos_player.left + 10;
 			var animate = 100;
-			//$('#gamebody').append($('<div>').addClass('bullet'));
 			$('.bullet').addClass('left');
 			$('.left').css({'top': top_pos,'left': left_pos});
 			$('.left').addClass('rotateleft');
@@ -41,12 +59,11 @@ $(document).ready(function(){
 			});
 		}
 	//for top 	
-		if(my_player.tank_direction == 38){	
+		if(my_player.tank_direction == top){	
 			var pos_player = $('.my_player').position();
 			var top_pos = pos_player.top - 15;
 			var	left_pos = pos_player.left + 30;
 			var animate = top_pos;
-			//$('#gamebody').append($('<div>').addClass('bullet'));
 			$('.bullet').addClass('top');
 			$('.top').css({'top': top_pos,'left': left_pos});
 			$('.top').addClass('rotatetop');
@@ -56,12 +73,11 @@ $(document).ready(function(){
 			});
 		}	
 	//for down	
-		if(my_player.tank_direction == 40){	
+		if(my_player.tank_direction == down){	
 			var pos_player = $('.my_player').position();
 			var top_pos = pos_player.top + 55;
 			var	left_pos = pos_player.left + 30;
 			var animate = 500;
-			//$('#gamebody').append($('<div>').addClass('bullet'));
 			$('.bullet').addClass('down');
 			$('.down').css({'top': top_pos,'left': left_pos});
 			$('.down').addClass('rotatedown');
@@ -74,62 +90,58 @@ $(document).ready(function(){
 	
 	//player control
 	$(document).keydown(function(e) {
+	
+		$('.my_player').removeClass('rotatetop');
+		$('.my_player').removeClass('rotateright');
+		$('.my_player').removeClass('rotateleft');				
+		$('.my_player').removeClass('rotatedown');
+		
 		switch(e.which) {
-		    case 37: // left
-				$('.my_player').removeClass('rotatetop');
-				$('.my_player').removeClass('rotateright');
-				$('.my_player').removeClass('rotatedown');
+		    case left: // left
 				$('.my_player').addClass('rotateleft');
 				
-				if( my_player.tank_direction == 37){	
+				if( my_player.tank_direction == left){	
 					if( my_player.x > 0){
 						$('.my_player').stop().animate({left: '-=50px'},50);
 						my_player.x = my_player.x - 50;
 					}
 				}
-				my_player.tank_direction = 37;	
+				my_player.tank_direction = left;	
 		    	break;
 
-		    case 38: // up
-				$('.my_player').removeClass('rotateleft');
-				$('.my_player').removeClass('rotateright');
-				$('.my_player').removeClass('rotatedown');
+		    case top: // up
 				$('.my_player').addClass('rotatetop');
-				if(my_player.tank_direction == 38){
+				if(my_player.tank_direction == top){
 					if(my_player.y > 0){
 						$('.my_player').stop().animate({top: '-=50px'},50);
 						my_player.y = my_player.y-50;
 					}
 				}		
-				my_player.tank_direction = 38;
+				my_player.tank_direction = top;
 		    	break;
 
-		    case 39: // right
-				$('.my_player').removeClass('rotatetop');
-				$('.my_player').removeClass('rotateleft');
-				$('.my_player').removeClass('rotatedown');				
+		    case right: // right
+								
 				$('.my_player').addClass('rotateright');
-				if(my_player.tank_direction == 39){
+				if(my_player.tank_direction == right){
 					if(my_player.x <900){
 						$('.my_player').stop().animate({left: '+=50px'},50);
 						my_player.x = my_player.x + 50;
 					}
 				}		
-				my_player.tank_direction = 39; 
+				my_player.tank_direction = right; 
 				break;
 
-		    case 40: // down
-				$('.my_player').removeClass('rotatetop');
-				$('.my_player').removeClass('rotateright');
-				$('.my_player').removeClass('rotateleft');				
+		    case down: // down
+							
 				$('.my_player').addClass('rotatedown');
-				if(my_player.tank_direction == 40){
+				if(my_player.tank_direction == down){
 					if(my_player.y < 400){
 						$('.my_player').stop().animate({top: '+=50px'},50);
 						my_player.y = my_player.y+50;
 					}	
 				}	
-				my_player.tank_direction = 40;
+				my_player.tank_direction = down;
 		    	break;
 
 		    default: return; // exit this handler for other keys
@@ -144,21 +156,22 @@ $(document).ready(function(){
 		.append($('<div>').addClass("tank_mouth").addClass('enemy'))
 		.css({'position':'absolute','top':y,'left':x,'width': '50px'});
 	}
-	setInterval(function(){
+	
+	setTimeout(function(){
 		$('#gamebody').append(enemy("computer_player1",100,0));
 		$('.computer_player1').addClass('rotatedown');
+		setTimeout(function(){
+			$('.computer_player1').animate({top:'400px'},10000);
+		},3000);
 	},3000);
-	setInterval(function(){
+	setTimeout(function(){
 		$('#gamebody').append(enemy("computer_player2",200,0));
 	},6000);
-	setInterval(function(){
+	setTimeout(function(){
 		$('#gamebody').append(enemy("computer_player3",200,100));
 	},9000);
-	timeOut(function(){
+	setTimeout(function(){
 		$('#gamebody').append(enemy("computer_player4",300,200));
 	},10000);	
-	timeOut(function(){
-		$('#gamebody').append(enemy("computer_player5",400,300));
-	},11000);	
 
 });

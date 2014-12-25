@@ -19,7 +19,7 @@ body{
 	margin:5px;
 	height: 65px;
 	width: 50px;
-	border: 2px solid black;
+	border: 2px solid #ffffff;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 	border-top-left-radius: 7px;
@@ -27,7 +27,7 @@ body{
 }
 
 .player{
-	background-color: green;
+	background-color: #47B547;
 }
 
 .enemy{
@@ -42,14 +42,15 @@ body{
 	margin-left: 35px;
 	height: 20px;
 	width: 30px;
-	border: 1px solid black;
-	border-right: 5px solid red;
+	border: 1px solid #ffffff;
+	border-right: 5px solid #0000ff;
 	border-radius: 5px;
 }
 
 .bullet{
-	clear: both;
-	position: relative;
+	float: left;
+	display: block;
+	position: absolute;
 	height: 10px;
 	width: 15px;
 	background-color: #ffffff;
